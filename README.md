@@ -33,15 +33,16 @@ command line utility to obtain the hash from url file
     hash - data result [24 108 90 204 81 189 102 126]
     --- PASS: TestHash (0.00s)
     === RUN   TestCmd
-    download - http://localhost:8080/file12.dat
+    download - https://raw.githubusercontent.com/garciaolais/gownload/main/cmd/file12.dat
     hash - data [12]
-    hash - data result [24 108 90 204 81 189 102 126]   
+    hash - data result [24 108 90 204 81 189 102 126]
     create file /tmp/file.dat
-    file hex - 186c5acc51bd667e--- PASS: TestCmd (0.01s)
+    file hex - 186c5acc51bd667e
+    --- PASS: TestCmd (0.14s)
     PASS
-    ok      command-line-arguments  0.009s
+    ok      command-line-arguments  0.140s
     go test -v util/util_test.go -short
-    === RUN   TestIsURL        
+    === RUN   TestIsURL
     --- PASS: TestIsURL (0.00s)
     PASS
     ok      command-line-arguments  0.004s
