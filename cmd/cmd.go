@@ -31,7 +31,7 @@ func Run(url string, throttling bool, path string) error {
 	if err != nil {
 		return err
 	}
-	fmt.Printf("file hex - %s", str)
+	fmt.Printf("file hex - %s\n", str)
 	return nil
 }
 
