@@ -1,9 +1,6 @@
 package cmd
 
 import (
-	"log"
-	"net"
-	"net/http"
 	"os"
 	"path/filepath"
 	"testing"
@@ -20,19 +17,8 @@ func TestHash(t *testing.T) {
 }
 
 func TestCmd(t *testing.T) {
-	http.HandleFunc("/file12.dat", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, "file12.dat")
-	})
-
-	l, err := net.Listen("tcp", "localhost:8080")
-	assert.NoError(t, err)
-
-	go func() {
-		log.Fatal(http.Serve(l, nil))
-	}()
-
 	filePath := filepath.Join(os.TempDir(), "file.dat")
-	err = cmd.Run("http://localhost:8080/file12.dat", false, filePath)
+	err := cmd.Run("https://raw.githubusercontent.com/garciaolais/gownload/main/cmd/file12.dat", false, filePath)
 	assert.NoError(t, err)
 
 	str, err := cmd.PrintHexFile(filePath)
